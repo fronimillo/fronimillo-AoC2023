@@ -27,40 +27,4 @@ public class Program
             //i = 0;
         }
     }
-    public static void Main1()
-    {
-        foreach (char code in input)
-        {
-            if (Char.IsNumber(code))
-            {
-                Console.Write($"{code}");
-            }
-        }
-    }
-    public static void Main2()
-    {
-        int i = 0;
-        foreach (char code in input)
-        {
-            if (Char.IsNumber(code))
-            {
-                //foreach (char twocode in code)
-                //foreach (char codes in input)
-                i++;
-                Console.Write($"{code}");
-                if (i >= 2 && Char.IsDigit(code))
-                {
-                    //Console.WriteLine($"{code}");
-                    //Console.Write(" ");
-                    //i = 0;
-                }
-
-            }
-            //i = 0;
-        }
-    }
-    public static void Main3()
-    {
-
-    }
 }  
