@@ -32,9 +32,15 @@ public class Program
         {
             int digitFirst = line.IndexOfAny(digits);
             int digitLast = line.LastIndexOfAny(digits);
+            /*
+             * can't convert string to bool error (fix it)
+             * foreach (char code in splitinput)
+                add chars with (index = digitFirst) + (index = digitLast
+             */
             var lineResult = $"{digitFirst}{digitLast}";
             var numberResult = int.Parse(lineResult);
             resultList.Add(numberResult);
+            // this is still the "wrong" result as it just displays index numbers put together in pairs of 2
             Console.WriteLine(numberResult);
         }
     }
