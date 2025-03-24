@@ -35,7 +35,7 @@ public class Program
             /*
              * can't convert string to bool error (fix it)
              * foreach (char code in splitinput)
-                add chars with (index = digitFirst) + (index = digitLast
+                add chars with (index = digitFirst) + ( index = digitLast )
              */
             var lineResult = $"{digitFirst}{digitLast}";
             var numberResult = int.Parse(lineResult);
