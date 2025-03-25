@@ -22,7 +22,6 @@ public class Program
             var numberResult = int.Parse(lineResult);
             resultList.Add(numberResult);
             sumNumber = sumNumber + numberResult;
-            // this is still the "wrong" result as it just displays index numbers put together in pairs of 
         }
         Console.WriteLine(sumNumber);
     }
