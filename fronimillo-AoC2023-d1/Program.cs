@@ -9,27 +9,40 @@ public class Program
     public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
     public static void Main()
     {
-        // Part 2 of Day 
+        // 2 new Bugs
+        // Part 2 of Day
         foreach (string line in fileInput)
+        // (char line in fileInput)
         {
-            // if string contains alphaDigits then convert to numDigits
+            // if string contains alphaDigits then convert to numDigits:
+            // if line contains any alpha digits then get Index number for every alphaDigit in line
+            // Alpha Digits with highest or lowest will get converted
+            // Conversion :
+            // * find string in alphaDigit --> get Index --> index matches with numDigit
+            // * get numDigit value from its Index.
+            // * id first and last digit via index
+            // * -->
+            // Convert to "new" Digit Last and First accordingly
+
+            // do old code
             // if their the Index is value less than of numericDigits in string line --> Firstdigit
             // if the last alphaDigit in fileInput is the LastIndexofAny 
+            // mistake here : looking at searchstring not input string --> double output & no first and last digits
             foreach (string searchString in alphaDigits)
             {
                 if (line.Contains(searchString))
                 {
-                    string extractedString = line.Substring(line.IndexOf(searchString), searchString.Length);
-                    //string[] strArry = extractedString.ToArray();
-                    char[] charArray = extractedString.ToCharArray();
-                    int digitAlpha = line.IndexOfAny(charArray);
-                    char[] charArrayLast = extractedString.ToCharArray();
-                    int digitLastAlpha = line.LastIndexOfAny(charArrayLast);
-                    Console.WriteLine(charArray);
-                    Console.WriteLine(charArrayLast);
-                    //Console.WriteLine($"Extracted string: {extractedString}");
+                    Console.WriteLine($"{line} {searchString}");
+                    // get index of number that is in alphaDigits (which equals) searchString 
+                    var getIndex = line.IndexOf(searchString);
+                    //Console.WriteLine(getIndex);
+                    // find getIndex in numDigits
+                    // alphabetic number is "Converted" via get extracted numDigits value
+                    // add numDigit index +1 to convert to numeric value
+                      
                 }
             }
+            //foreach (string lastString in alphaDigits)
         }
         // Part 1 of Day 1
         int sumNumber = 0;
