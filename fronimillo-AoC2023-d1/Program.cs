@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 public class Program
 {
     public static char[] numDigits = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
@@ -9,9 +6,9 @@ public class Program
     public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
     public static void Main()
     {
+        var convertedLines = new List<string>();
         // Part 2 of Day
         foreach (string line in fileInput)
-        // (char line in fileInput)
         {
             /*Instructions         
             // if string contains alphaDigits then convert to numDigits:
@@ -31,37 +28,53 @@ public class Program
             {
                 if (line.Contains(searchString))
                 {
-                    Console.WriteLine($"{line} {searchString}");
+                    Console.Write($"search \"{searchString}\" in {line} -> ");
                     // get index of number that is in alphaDigits (which equals) searchString 
-                    var getIndex = line.IndexOf(searchString);
-                    var getAlphaIndex = Array.IndexOf(alphaDigits, searchString);
-                    var numValue = getAlphaIndex + 1;
-                    Console.WriteLine(numValue);
-                    numValue.ToString($"numValue");
-                    Console.WriteLine(numValue);
-                    // to string numValue --> corrected Value
-                    // instert corrected Value into line via its index from getIndex
-                    // 
-                    // new Idea for Solution
-                    // put extracted numValue "back" to line Index "position" (line 5 would be at index 22)
-                    // --> hcpjssql4kjhbcqzkvr2fivebpllzqbkhg turns into --> hcpjssql4kjhbcqzkvr25ivebpllzqbkhg  
-                    // adapt to work with old code
+                    var foundAtIndex = line.IndexOf(searchString);
+                    Console.Write($"found @ idx: {foundAtIndex} ");
+
+                    var alphaIndex = Array.IndexOf(alphaDigits, searchString);
+                    Console.Write($"num {alphaIndex} + 1 = ");
+
+                    var numValue = alphaIndex + 1;
+                    //Console.WriteLine(numValue);
+                    //numValue.ToString($"numValue");
+                    string numString = numValue.ToString();
+                    Console.WriteLine($"value {numString}");
+
+                    //Console.WriteLine(numValue
+                    // Doesn't replace char at index getAlphaIndex just inserts it infront (shocker)
+                    string newLine = InsertStringAtIndex(line, numString , foundAtIndex);
+                    convertedLines.Add(newLine);
+                    
+                    Console.WriteLine($"result: {newLine}\n");
+                    // add method to id first and last number conversion?
+                    // add remove method to go from 5five --> 5ive
+                    // find way to execute line as long as alphabetic number are in line --> no multiple lines
+                    // ignore middle conversion --> just filter "char" 
                 }
             }
-            //foreach (string lastString in alphaDigits)
         }
         // Part 1 of Day 1
         int sumNumber = 0;
         var resultList = new List<int>();
-        foreach (var line in fileInput)
+        foreach (var line in convertedLines)
         {
-            int digitFirst = line.IndexOfAny(numDigits);
-            int digitLast = line.LastIndexOfAny(numDigits);
+            var digitFirst = line.IndexOfAny(numDigits);
+            var digitLast = line.LastIndexOfAny(numDigits);
             var lineResult = $"{line[digitFirst]}{line[digitLast]}";
             var numberResult = int.Parse(lineResult);
             resultList.Add(numberResult);
             sumNumber = sumNumber + numberResult;
         }
-        Console.WriteLine(sumNumber);
+        Console.WriteLine(sumNumber); 
+    }
+    static string InsertStringAtIndex(string searchString, string newLine, int index)
+    {
+        if (index < 0 || index > searchString.Length)
+        {
+            throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
+        }
+        return searchString.Substring(0, index) + newLine + searchString.Substring(index);
     }
 }
