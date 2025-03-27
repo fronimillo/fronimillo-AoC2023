@@ -9,11 +9,11 @@ public class Program
     public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
     public static void Main()
     {
-        // 2 new Bugs
         // Part 2 of Day
         foreach (string line in fileInput)
         // (char line in fileInput)
         {
+            /*Instructions         
             // if string contains alphaDigits then convert to numDigits:
             // if line contains any alpha digits then get Index number for every alphaDigit in line
             // Alpha Digits with highest or lowest will get converted
@@ -28,6 +28,7 @@ public class Program
             // if their the Index is value less than of numericDigits in string line --> Firstdigit
             // if the last alphaDigit in fileInput is the LastIndexofAny 
             // mistake here : looking at searchstring not input string --> double output & no first and last digits
+            */
             foreach (string searchString in alphaDigits)
             {
                 if (line.Contains(searchString))
@@ -35,11 +36,12 @@ public class Program
                     Console.WriteLine($"{line} {searchString}");
                     // get index of number that is in alphaDigits (which equals) searchString 
                     var getIndex = line.IndexOf(searchString);
-                    //Console.WriteLine(getIndex);
+                    var getAlphaIndex = Array.IndexOf(alphaDigits, searchString);
+                    var numValue = getAlphaIndex + 1;
+                    Console.WriteLine(numValue);
                     // find getIndex in numDigits
                     // alphabetic number is "Converted" via get extracted numDigits value
                     // add numDigit index +1 to convert to numeric value
-                      
                 }
             }
             //foreach (string lastString in alphaDigits)
