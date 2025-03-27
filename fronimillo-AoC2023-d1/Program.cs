@@ -37,6 +37,8 @@ public class Program
                     var getAlphaIndex = Array.IndexOf(alphaDigits, searchString);
                     var numValue = getAlphaIndex + 1;
                     Console.WriteLine(numValue);
+                    numValue.ToString($"numValue");
+                    Console.WriteLine(numValue);
                     // to string numValue --> corrected Value
                     // instert corrected Value into line via its index from getIndex
                     // 
