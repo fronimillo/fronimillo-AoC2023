@@ -18,12 +18,10 @@ public class Program
             // if line contains any alpha digits then get Index number for every alphaDigit in line
             // Alpha Digits with highest or lowest will get converted
             // Conversion :
-            // * find string in alphaDigit --> get Index --> index matches with numDigit
-            // * get numDigit value from its Index.
+            // * find string in alphaDigit --> get Index --> index matches with 
             // * id first and last digit via index
             // * -->
             // Convert to "new" Digit Last and First accordingly
-
             // do old code
             // if their the Index is value less than of numericDigits in string line --> Firstdigit
             // if the last alphaDigit in fileInput is the LastIndexofAny 
@@ -39,9 +37,13 @@ public class Program
                     var getAlphaIndex = Array.IndexOf(alphaDigits, searchString);
                     var numValue = getAlphaIndex + 1;
                     Console.WriteLine(numValue);
-                    // find getIndex in numDigits
-                    // alphabetic number is "Converted" via get extracted numDigits value
-                    // add numDigit index +1 to convert to numeric value
+                    // to string numValue --> corrected Value
+                    // instert corrected Value into line via its index from getIndex
+                    // 
+                    // new Idea for Solution
+                    // put extracted numValue "back" to line Index "position" (line 5 would be at index 22)
+                    // --> hcpjssql4kjhbcqzkvr2fivebpllzqbkhg turns into --> hcpjssql4kjhbcqzkvr25ivebpllzqbkhg  
+                    // adapt to work with old code
                 }
             }
             //foreach (string lastString in alphaDigits)
