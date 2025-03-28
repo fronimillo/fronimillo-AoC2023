@@ -28,8 +28,9 @@ public class Program
             {
                 if (line.Contains(searchString))
                 {
+
                     Console.Write($"search \"{searchString}\" in {line} -> ");
-                    // get index of number that is in alphaDigits (which equals) searchString 
+                    // get index of number that is in alphaDigits (which equals) searchString
                     var foundAtIndex = line.IndexOf(searchString);
                     Console.Write($"found @ idx: {foundAtIndex} ");
 
@@ -37,21 +38,29 @@ public class Program
                     Console.Write($"num {alphaIndex} + 1 = ");
 
                     var numValue = alphaIndex + 1;
-                    //Console.WriteLine(numValue);
-                    //numValue.ToString($"numValue");
-                    string numString = numValue.ToString();
-                    Console.WriteLine($"value {numString}");
+                    // this won't work as int can't be compared like bool and
+                    // LastIndex of searchString doesn't make any sense --> in this puzzle
+                    // 
+                    //if (line.IndexOf(searchString) || line.LastIndexOf(searchString))
+                    {
+                        //Console.WriteLine(numValue);
+                        //numValue.ToString($"numValue");
+                        // if the foundAtIndex is the first or last do the 
+                        string numString = numValue.ToString();
+                        Console.WriteLine($"value {numString}");
 
-                    //Console.WriteLine(numValue
-                    // Doesn't replace char at index getAlphaIndex just inserts it infront (shocker)
-                    string newLine = InsertStringAtIndex(line, numString , foundAtIndex);
-                    convertedLines.Add(newLine);
-                    
-                    Console.WriteLine($"result: {newLine}\n");
-                    // add method to id first and last number conversion?
-                    // add remove method to go from 5five --> 5ive
-                    // find way to execute line as long as alphabetic number are in line --> no multiple lines
-                    // ignore middle conversion --> just filter "char" 
+                        // add remove method here...
+                        string newLine = InsertStringAtIndex(line, numString, foundAtIndex);
+                        convertedLines.Add(newLine);
+                        // line below doesn't work
+                        //searchString.Remove(foundAtIndex, line.LastIndexOf(searchString));
+                        Console.WriteLine($"result: {newLine}\n");
+
+                        // add method to id first and last number conversion
+                        // add remove method to go from 5five --> 5ive
+                        // find way to execute line as long as alphabetic number are in line --> no multiple lines
+                        // ignore middle conversion --> just filter "char" 
+                    }
                 }
             }
         }
