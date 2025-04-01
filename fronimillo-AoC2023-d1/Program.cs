@@ -28,7 +28,6 @@ public class Program
             {
                 if (line.Contains(searchString))
                 {
-
                     Console.Write($"search \"{searchString}\" in {line} -> ");
                     // get index of number that is in alphaDigits (which equals) searchString
                     var foundAtIndex = line.IndexOf(searchString);
@@ -53,7 +52,10 @@ public class Program
                         string newLine = InsertStringAtIndex(line, numString, foundAtIndex);
                         convertedLines.Add(newLine);
                         // line below doesn't work
-                        //searchString.Remove(foundAtIndex, line.LastIndexOf(searchString));
+                        string removeString;
+
+                        removeString.Remove(foundAtIndex, line.IndexOf(searchString));
+                        //line.Remove(foundAtIndex, numValue);
                         Console.WriteLine($"result: {newLine}\n");
 
                         // add method to id first and last number conversion
@@ -61,6 +63,7 @@ public class Program
                         // find way to execute line as long as alphabetic number are in line --> no multiple lines
                         // ignore middle conversion --> just filter "char" 
                     }
+                    Console.WriteLine(convertedLines);
                 }
             }
         }
@@ -76,7 +79,7 @@ public class Program
             resultList.Add(numberResult);
             sumNumber = sumNumber + numberResult;
         }
-        Console.WriteLine(sumNumber); 
+        Console.WriteLine(sumNumber);
     }
     static string InsertStringAtIndex(string searchString, string newLine, int index)
     {
