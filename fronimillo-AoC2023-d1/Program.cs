@@ -44,6 +44,7 @@ public class Program
                     //if (line.IndexOf(searchString) || line.LastIndexOf(searchString))
                     {
                         var removeString = searchString;
+                        // do numValue to string 
                         var addString = numValue;
                         int startIndex = line.IndexOf(removeString);
                         //line = line.Insert(startIndex, addString);
@@ -61,6 +62,8 @@ public class Program
                         // Intigrate TestSandbox script here 
                         newLine = newLine.Remove(startIndex, 1);
                         Console.WriteLine(newLine);
+                        newLine = newLine.Insert(startIndex, numValue);
+                        Console.WriteLine(line);
                         // add method to id first and last number conversion
                         // add remove method to go from 5five --> 5ive
                         // find way to execute line as long as alphabetic number are in line --> no multiple lines
