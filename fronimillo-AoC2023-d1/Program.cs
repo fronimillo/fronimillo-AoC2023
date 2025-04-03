@@ -6,7 +6,7 @@ public class Program
     public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
     public static void Main()
     {
-        var convertedLines = new List<string>()
+        var convertedLines = new List<string>();
         // Part 2 of Day
         foreach (string line in fileInput)
         {
@@ -26,8 +26,6 @@ public class Program
             */
             foreach (string searchString in alphaDigits)
             {
-                var removeString = searchString;
-                var addString = $"numValue";
                 // test above
                 if (line.Contains(searchString))
                 {
@@ -45,6 +43,8 @@ public class Program
                     // 
                     //if (line.IndexOf(searchString) || line.LastIndexOf(searchString))
                     {
+                        var removeString = searchString;
+                        var addString = $"numValue";
                         int startIndex = line.IndexOf(removeString);
                         Console.WriteLine($"this is before: \"{line}\" ");
                         line = line.Remove(startIndex, 1);
