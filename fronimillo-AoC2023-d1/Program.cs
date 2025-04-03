@@ -6,7 +6,7 @@ public class Program
     public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
     public static void Main()
     {
-        var convertedLines = new List<string>();
+        var convertedLines = new List<string>()
         // Part 2 of Day
         foreach (string line in fileInput)
         {
@@ -26,6 +26,9 @@ public class Program
             */
             foreach (string searchString in alphaDigits)
             {
+                var removeString = searchString;
+                var addString = $"numValue";
+                // test above
                 if (line.Contains(searchString))
                 {
                     Console.Write($"search \"{searchString}\" in {line} -> ");
@@ -42,6 +45,12 @@ public class Program
                     // 
                     //if (line.IndexOf(searchString) || line.LastIndexOf(searchString))
                     {
+                        int startIndex = line.IndexOf(removeString);
+                        Console.WriteLine($"this is before: \"{line}\" ");
+                        line = line.Remove(startIndex, 1);
+                        Console.WriteLine(line);
+                        //line = line.Insert(startIndex, addString);
+                        //Console.WriteLine(line);
                         //Console.WriteLine(numValue);
                         //numValue.ToString($"numValue");
                         // if the foundAtIndex is the first or last do the 
@@ -57,7 +66,7 @@ public class Program
                         removeString.Remove(foundAtIndex, line.IndexOf(searchString));
                         //line.Remove(foundAtIndex, numValue);
                         Console.WriteLine($"result: {newLine}\n");
-
+                        // Intigrate TestSandbox script here 
                         // add method to id first and last number conversion
                         // add remove method to go from 5five --> 5ive
                         // find way to execute line as long as alphabetic number are in line --> no multiple lines
