@@ -6,15 +6,15 @@ public class Program
     public static void Main()
     {
         var removeString = "five";
-        var fin ="";
+        // should be var for non test programm
         int startIndex = 20;
-        int endIndex = 25;
+        int count = removeString.Length;
         int i = 0;
         if (i == 0) 
         {
             Console.WriteLine($"this is before: \"{line}\" ");
-            removeString.Remove( startIndex, endIndex );
-            Console.WriteLine(fin);
+            line = line.Remove( startIndex, count );
+            Console.WriteLine(line);
         }
-    }
+    } 
 }
