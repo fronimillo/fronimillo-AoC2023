@@ -9,8 +9,8 @@ public class Program
         // should be var for non test programm
         int startIndex = line.IndexOf(removeString);
         int count = removeString.Length;
-            Console.WriteLine($"this is before: \"{line}\" ");
-            line = line.Remove( startIndex, count );
-            Console.WriteLine(line);
+        Console.WriteLine($"this is before: \"{line}\" ");
+        line = line.Remove( startIndex, count );
+        Console.WriteLine(line);
     } 
 }
