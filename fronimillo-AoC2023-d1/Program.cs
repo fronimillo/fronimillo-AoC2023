@@ -44,11 +44,8 @@ public class Program
                     //if (line.IndexOf(searchString) || line.LastIndexOf(searchString))
                     {
                         var removeString = searchString;
-                        var addString = $"numValue";
+                        var addString = numValue;
                         int startIndex = line.IndexOf(removeString);
-                        Console.WriteLine($"this is before: \"{line}\" ");
-                        line = line.Remove(startIndex, 1);
-                        Console.WriteLine(line);
                         //line = line.Insert(startIndex, addString);
                         //Console.WriteLine(line);
                         //Console.WriteLine(numValue);
@@ -61,12 +58,9 @@ public class Program
                         string newLine = InsertStringAtIndex(line, numString, foundAtIndex);
                         convertedLines.Add(newLine);
                         // line below doesn't work
-                        string removeString;
-
-                        removeString.Remove(foundAtIndex, line.IndexOf(searchString));
-                        //line.Remove(foundAtIndex, numValue);
-                        Console.WriteLine($"result: {newLine}\n");
                         // Intigrate TestSandbox script here 
+                        newLine = newLine.Remove(startIndex, 1);
+                        Console.WriteLine(newLine);
                         // add method to id first and last number conversion
                         // add remove method to go from 5five --> 5ive
                         // find way to execute line as long as alphabetic number are in line --> no multiple lines
