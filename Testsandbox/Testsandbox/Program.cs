@@ -7,7 +7,7 @@ public class Program
     {
         var removeString = "five";
         // should be var for non test programm
-        int startIndex = 20;
+        int startIndex = line.IndexOf(removeString);
         int count = removeString.Length;
         int i = 0;
         if (i == 0) 
