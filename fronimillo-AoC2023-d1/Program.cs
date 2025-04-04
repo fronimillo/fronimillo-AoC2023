@@ -10,6 +10,7 @@ public class Program
         // Part 2 of Day 1
         foreach (string line in fileInput)
         {
+            var lineDuringConversion = line;
             /*Instructions         
             // if string contains alphaDigits then convert to numDigits:
             // if line contains any alpha digits then get Index number for every alphaDigit in line
@@ -26,41 +27,22 @@ public class Program
             */
             foreach (string searchString in alphaDigits)
             {
-                // test above
-                if (line.Contains(searchString))
+                while (lineDuringConversion.Contains(searchString))
                 {
-                    
                     //Console.Write($"search \"{searchString}\" in {line} -> ");
-                    // get index of number that is in alphaDigits (which equals) searchString
-                    var foundAtIndex = line.IndexOf(searchString);
-                    //Console.Write($"found @ idx: {foundAtIndex} ");
-
+                    // index of number that is in alphaDigits (which equals) searchString
                     var alphaIndex = Array.IndexOf(alphaDigits, searchString);
-                    //Console.Write($"num {alphaIndex} + 1 = ");
-
                     var numValue = alphaIndex + 1;
-                    // this won't work as int can't be compared like booleans (bec. string)
-                    //if (line.IndexOf(searchString) || line.LastIndexOf(searchString))
-                    {
-                        string removeString = searchString;
-                        int startIndex = line.IndexOf(removeString);
-                        //Console.WriteLine(line);
-                        numValue.ToString($"numValue");
-                        //Console.WriteLine(numValue);
-                        string numString = numValue.ToString();
-                        Console.WriteLine($"value {numString}");
-                        string newLine = InsertStringAtIndex(line, numString, foundAtIndex);
-                        // Intigrate TestSandbox script here 
-                        newLine = newLine.Remove(startIndex, 1);
-                        Console.WriteLine(newLine);
-                        newLine = newLine.Insert(startIndex, numString);
-                        Console.WriteLine(newLine);
-                        // add method to id first and last number conversion  (dif ***)
-                        // add remove method to go from 5five => 5ive (dif **)
-                        // find way to execute line as long as alphabetic number are in line => no multiple lines
-                        // => ignore middle conversion => just filter "char" 
-                        convertedLines.Add(newLine);
-                    }
+                    int startIndex = lineDuringConversion.IndexOf(searchString);
+                    string numString = numValue.ToString();
+                    string newLine = lineDuringConversion.Remove(startIndex, 1);
+                    lineDuringConversion = newLine.Insert(startIndex, numString);
+                    Console.WriteLine(lineDuringConversion);
+                    // add method to id first and last number conversion  (dif ***)
+                    // add remove method to go from 5five => 5ive (dif **)
+                    // find way to execute line as long as alphabetic number are in line => no multiple lines
+                    // => ignore middle conversion => just filter "char" (dif *)
+                    convertedLines.Add(lineDuringConversion);
                     // Console.WriteLine(convertedLines);
                 }
             }
@@ -78,13 +60,5 @@ public class Program
             sumNumber = sumNumber + numberResult;
         }
         Console.WriteLine(sumNumber);
-    }
-    static string InsertStringAtIndex(string searchString, string newLine, int index)
-    {
-        if (index < 0 || index > searchString.Length)
-        {
-            throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
-        }
-        return searchString.Substring(0, index) + newLine + searchString.Substring(index);
     }
 }
