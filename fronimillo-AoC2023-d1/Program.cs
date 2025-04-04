@@ -3,7 +3,8 @@ public class Program
 {
     public static char[] numDigits = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     public static string[] alphaDigits = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-    public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
+    //public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
+    public static string[] fileInput = { "two1nine","eightwothree", "abcone2threexyz", "xtwone3four", "4nineeightseven2", "zoneight234", "7pqrstsixteen" };
     public static void Main()
     {
         var convertedLines = new List<string>();
@@ -33,19 +34,19 @@ public class Program
                     // index of number that is in alphaDigits (which equals) searchString
                     var alphaIndex = Array.IndexOf(alphaDigits, searchString);
                     var numValue = alphaIndex + 1;
-                    int startIndex = lineDuringConversion.IndexOf(searchString);
+                    int startIndex = lineDuringConversion.IndexOf(searchString) + 1 ;
                     string numString = numValue.ToString();
                     string newLine = lineDuringConversion.Remove(startIndex, 1);
                     lineDuringConversion = newLine.Insert(startIndex, numString);
-                    Console.WriteLine(lineDuringConversion);
                     // add method to id first and last number conversion  (dif ***)
                     // add remove method to go from 5five => 5ive (dif **)
                     // find way to execute line as long as alphabetic number are in line => no multiple lines
                     // => ignore middle conversion => just filter "char" (dif *)
-                    convertedLines.Add(lineDuringConversion);
                     // Console.WriteLine(convertedLines);
                 }
             }
+                    Console.WriteLine(lineDuringConversion);
+                    convertedLines.Add(lineDuringConversion);
         }
         // Part 1 of Day 1
         int sumNumber = 0;
