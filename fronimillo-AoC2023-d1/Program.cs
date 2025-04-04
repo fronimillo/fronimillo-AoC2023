@@ -3,8 +3,8 @@ public class Program
 {
     public static char[] numDigits = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     public static string[] alphaDigits = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-    //public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
-    public static string[] fileInput = { "two1nine","eightwothree", "abcone2threexyz", "xtwone3four", "4nineeightseven2", "zoneight234", "7pqrstsixteen" };
+    public static string[] fileInput = File.ReadAllLines(@"C:\Users\hess.camillo\Documents\puzzleinput.txt");
+    //public static string[] fileInput = { "two1nine","eightwothree", "abcone2threexyz", "xtwone3four", "4nineeightseven2", "zoneight234", "7pqrstsixteen" };
     public static void Main()
     {
         var convertedLines = new List<string>();
