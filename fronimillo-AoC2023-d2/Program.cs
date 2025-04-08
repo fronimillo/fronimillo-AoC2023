@@ -10,5 +10,10 @@ public class Program
     public static void Main()
     {
         // only 12 red cubes, 13 green cubes, and 14 blue cubes
+        // 1,2 & 5 are possible games in puzzleExample => Why?
+        foreach (var game in puzzleExample)
+        { 
+            Console.WriteLine(game);
+        }
     }
 }
