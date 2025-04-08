@@ -36,10 +36,19 @@ public class Program
         // definition of a Cube grab: "_n_color"
         // Find Cube grabs and add them up by color
         // I need a List with a range varibale inside a string
-        foreach (string game in puzzleExample)
-        { 
+        int n = 0;
+        string[] color = { "red", "green", "blue" };
+        string blankSpace = " ";
+        // make this crap work
+        var cubeDefinition = $"{blankSpace}"+$"{n}"+$"{blankSpace}"+$"{color}";
+        //foreach (string game in puzzleExample)
+        {
+            // make this crap work
+            while (game.ContainsAny<string>(cubeDefinition))
+                
             Console.WriteLine(game);
-            while ()
+            Console.WriteLine(cubeDefinition);
+
         }
     }
 }
