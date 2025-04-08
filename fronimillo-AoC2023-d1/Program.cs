@@ -30,23 +30,16 @@ public class Program
             {
                 while (lineDuringConversion.Contains(searchString))
                 {
-                    //Console.Write($"search \"{searchString}\" in {line} -> ");
-                    // index of number that is in alphaDigits (which equals) searchString
                     var alphaIndex = Array.IndexOf(alphaDigits, searchString);
                     var numValue = alphaIndex + 1;
-                    int startIndex = lineDuringConversion.IndexOf(searchString) + 1 ;
+                    int startIndex = lineDuringConversion.IndexOf(searchString) + 1;
                     string numString = numValue.ToString();
                     string newLine = lineDuringConversion.Remove(startIndex, 1);
                     lineDuringConversion = newLine.Insert(startIndex, numString);
-                    // add method to id first and last number conversion  (dif ***)
-                    // add remove method to go from 5five => 5ive (dif **)
-                    // find way to execute line as long as alphabetic number are in line => no multiple lines
-                    // => ignore middle conversion => just filter "char" (dif *)
-                    // Console.WriteLine(convertedLines);
                 }
             }
-                    Console.WriteLine(lineDuringConversion);
-                    convertedLines.Add(lineDuringConversion);
+        Console.WriteLine(lineDuringConversion);
+        convertedLines.Add(lineDuringConversion);
         }
         // Part 1 of Day 1
         int sumNumber = 0;
