@@ -18,6 +18,9 @@ public class Program
 
         // Determine in the second place if Game is even possible for each color cube amount that has been added up?
         // => Find Possible Games via Addition of ceratin Color Cube amount  => Dif ***
+
+        // Game IDs of possible Games need to be added up in Total => this number is the Answer
+
         // Brainstorm :
         // only 12 red cubes, 13 green cubes, and 14 blue cubes
         // 1,2 & 5 are possible games in puzzleExample => Why? => because the amount of showed cubes is less than the constraints in line above.
