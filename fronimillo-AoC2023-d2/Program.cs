@@ -10,7 +10,7 @@ public class Program
     public static void Main()
     {
         /* WHAT DO I  H*A*V*E  TO DO?!
-        // Determine in the first place if Games is even possible with from each set amount?
+        // Determine in the first place if Games is even possible with from each set amount? (not a necessity) 
         // => Filter If any Set already contains to many Cubes for possible game? => Dif ***
 
         // Addition of all filterd Amounts of Cubes and sort by Color.
@@ -24,15 +24,22 @@ public class Program
         // Brainstorm :
         // only 12 red cubes, 13 green cubes, and 14 blue cubes
         // 1,2 & 5 are possible games in puzzleExample => Why? => because the amount of showed cubes is less than the constraints in line above.
-        // each SET is seperated by an semicolon (;) => just for fun prediction for part 2 of this day => diferantion between Sets is new Task
+        // each SET is seperated by an semicolon (;) => just for fun prediction for part 2 of this day => diferantion between Sets is new Task 
+        => each set could be a new possible game?
         // game 1 3rd set is just 2 green cubes
         // Explantion:
         // game 1 == 9 blue, 5 red, 4 green => 9blue <= 14; 5red <= 12; 4green <= 13 ==> possible game == True
         */
-        foreach (var game in puzzleExample)
+        var fetchedCubes = new List <string>();
+        string[] blueCubes = { " 1 blue, 2 blue, 3 blue, 4 blue, 5 blue, 6 blue, 7 blue, 8 blue, 9 blue" };
+        // if input contains >= 15 --> delete --> invalid Game
+        // definition of a Cube grab: "_n_color"
+        // Find Cube grabs and add them up by color
+        // I need a List with a range varibale inside a string
+        foreach (string game in puzzleExample)
         { 
             Console.WriteLine(game);
-            
+            while ()
         }
     }
 }
